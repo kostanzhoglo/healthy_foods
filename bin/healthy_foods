@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
+require './lib/healthy_foods.rb'
+
 HealthyFoods::CLI.new.call
