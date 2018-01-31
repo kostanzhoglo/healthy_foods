@@ -32,6 +32,8 @@ class HealthyFoods::CLI
           puts "Chicken is a meat"
         when "foods"
           list_foods
+        else
+          puts "Invalid input.  Please type a number, 'foods' or 'exit'."
       end
     end
   end
