@@ -3,7 +3,7 @@ NOTES - Building my CLI Gem
 1. Plan the gem, imagine the interface
 2. Start with the project structure
 3. Start with the entry point - the file run
-4. Use the entry point to build the CLI interface
+4. Use the entry point to build the CLI interface (class)
 5. Stub out the interface
 6. Start making parts real
 7. Discover objects ??
