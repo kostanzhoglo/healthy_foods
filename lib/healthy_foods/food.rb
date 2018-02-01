@@ -7,7 +7,7 @@ class HealthyFoods::Food
 
   def initialize(name)
     @name = name
-    @@all << self.new
+    @@all << self
   end
 
   def self.all
@@ -16,10 +16,4 @@ class HealthyFoods::Food
 
 end
 
-food_1("Bananas") = Food.new
-
-food_2("Carrots") = Food.new
-
-food_3("Beans") = Food.new
-
-food_4("Chicken") = Food.new
+# food_1("Bananas") = self.new
