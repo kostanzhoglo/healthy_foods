@@ -1,13 +1,38 @@
 
 class HealthyFoods::Food
 
-  attr_accessor :name, :serving_size, :nutrients
+  attr_accessor :name, :serving_size, :nutrients, :calories
 
   def self.list
     puts "\n1. Bananas"
     puts "2. Carrots"
     puts "3. Beans"
     puts "4. Chicken"
+
+    food_1 = Food.new
+    food_1.name = "Bananas"
+    food_1.serving_size = "118 grams"
+    food_1.nutrients = ["vitamin B6", "manganese", "vitamin C", "potassium", "fiber", "copper", "biotin"]
+    food_1.calories = "105"
+
+    food_2 = Food.new
+    food_2.name = "Carrots"
+    food_2.serving_size = "122 grams"
+    food_2.nutrients = ["vitamin A", "vitamin K", "vitamin B6", "manganese", "vitamin C", "potassium", "fiber", "copper", "biotin"]
+    food_2.calories = "50"
+
+    food_3 = Food.new
+    food_3.name = "Black Beans"
+    food_3.serving_size = "172 grams"
+    food_3.nutrients = ["molybdenum", "folate", "vitamin B1", "manganese", "vitamin C", "potassium", "fiber", "copper", "biotin"]
+    food_3.calories = "227"
+
+    food_4 = Food.new
+    food_4.name = "Chicken"
+    food_4.serving_size = "113 grams"
+    food_4.nutrients = ["vitamin B3", "protein", "selenium", "vitamin B6", "phosphorous"]
+    food_4.calories = "187"
+
   end
 
 end
