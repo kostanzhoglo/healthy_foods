@@ -10,11 +10,7 @@ class HealthyFoods::CLI
   end
 
   def list_foods
-    puts "\n1. Bananas"
-    puts "2. Carrots"
-    puts "3. Beans"
-    puts "4. Chicken"
-    HealthyFoods::Food.all
+    @foods = HealthyFoods::Food.list
   end
 
   def menu
