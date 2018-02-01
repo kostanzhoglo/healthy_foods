@@ -18,18 +18,12 @@ class HealthyFoods::CLI
     while user_input != "exit"
       puts "\nPlease enter the number of the food you'd like to learn more about,\n or type 'foods' to see list of foods again,\n or type 'exit' to end program."
       user_input = gets.strip.downcase
-      case user_input
-        when "1"
-          puts "Bananas are yellow"
-        when "2"
-          puts "Carrots are orange"
-        when "3"
-          puts "Beans are a variety of colors"
-        when "4"
-          puts "Chicken is a meat"
-        when "foods"
+
+      if user_input.to_i > 0
+        puts @foods[user_input.to_i - 1]
+      elsif user_input == "foods"
           list_foods
-        when "exit"
+      elsif user_input == "exit"
           puts "Hope you learned something fruitful!"
         else
           puts "Invalid input.  Please type a number, 'foods' or 'exit'."

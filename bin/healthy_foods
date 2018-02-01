@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/healthy_foods.rb'
+require "bundler/setup"
+require "healthy_foods"
 
 HealthyFoods::CLI.new.call

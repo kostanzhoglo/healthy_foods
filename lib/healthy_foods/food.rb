@@ -4,10 +4,6 @@ class HealthyFoods::Food
   attr_accessor :name, :serving_size, :nutrients, :calories
 
   def self.list
-    puts "\n1. Bananas"
-    puts "2. Carrots"
-    puts "3. Beans"
-    puts "4. Chicken"
 
     food_1 = self.new
     food_1.name = "Bananas"
