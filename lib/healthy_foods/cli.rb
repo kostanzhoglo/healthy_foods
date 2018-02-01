@@ -23,7 +23,11 @@ class HealthyFoods::CLI
       user_input = gets.strip.downcase
 
       if user_input.to_i > 0 && user_input.to_i <= @foods.length
-        puts @foods[user_input.to_i - 1]
+        food_choice = @foods[user_input.to_i - 1]
+        puts "#{food_choice.name.upcase}"
+        puts "Serving Size: #{food_choice.serving_size}"
+        puts "Calories: #{food_choice.calories}"
+        puts "Nutrients: #{food_choice.nutrients.join(", ")}"
       elsif user_input == "foods"
         list_foods
       elsif user_input == "exit"
