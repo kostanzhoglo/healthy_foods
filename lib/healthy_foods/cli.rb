@@ -11,6 +11,9 @@ class HealthyFoods::CLI
 
   def list_foods
     @foods = HealthyFoods::Food.list
+    @foods.each.with_index(1) do |food, index|
+      puts "#{index}. #{food.name}"
+    end
   end
 
   def menu
@@ -19,14 +22,14 @@ class HealthyFoods::CLI
       puts "\nPlease enter the number of the food you'd like to learn more about,\n or type 'foods' to see list of foods again,\n or type 'exit' to end program."
       user_input = gets.strip.downcase
 
-      if user_input.to_i > 0
+      if user_input.to_i > 0 && user_input.to_i <= @foods.length
         puts @foods[user_input.to_i - 1]
       elsif user_input == "foods"
-          list_foods
+        list_foods
       elsif user_input == "exit"
-          puts "Hope you learned something fruitful!"
-        else
-          puts "Invalid input.  Please type a number, 'foods' or 'exit'."
+        puts "Hope you learned something fruitful!"
+      else
+        puts "Invalid input.  Please type a number, 'foods' or 'exit'."
       end
     end
   end
