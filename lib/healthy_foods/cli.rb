@@ -14,6 +14,7 @@ class HealthyFoods::CLI
     puts "2. Carrots"
     puts "3. Beans"
     puts "4. Chicken"
+    HealthyFoods::Food.all
   end
 
   def menu
@@ -32,6 +33,8 @@ class HealthyFoods::CLI
           puts "Chicken is a meat"
         when "foods"
           list_foods
+        when "exit"
+          puts "Hope you learned something fruitful!"
         else
           puts "Invalid input.  Please type a number, 'foods' or 'exit'."
       end
@@ -39,7 +42,7 @@ class HealthyFoods::CLI
   end
 
   def goodbye
-    puts "Come back soon to learn more!  Eat those fruits and veggies!"
+    puts "Come back soon to find out more!  Eat those fruits and veggies!"
   end
 
 
