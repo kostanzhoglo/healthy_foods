@@ -10,8 +10,8 @@ class HealthyFoods::CLI
   end
 
   def list_foods
-    @foods = HealthyFoods::Food.list
-    @foods.each.with_index(1) do |food, index|
+    # @foods = HealthyFoods::Food.list
+    HealthyFoods::Food.all.each.with_index(1) do |food, index|
       puts "#{index}. #{food.name}"
     end
   end

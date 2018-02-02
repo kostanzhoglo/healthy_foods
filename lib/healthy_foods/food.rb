@@ -6,7 +6,7 @@ class HealthyFoods::Food
   @@all = []
 
   def initialize(food_hash)
-    food_hash.each {|attribute, value| self.send(("#{attribute}=", value))}
+    food_hash.each {|attribute, value| self.send(("#{attribute}="), value)}
     @@all << self
   end
 
