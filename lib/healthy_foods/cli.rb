@@ -25,6 +25,7 @@ class HealthyFoods::CLI
   def add_attributes_to_food
     HealthyFoods::Food.all.each do |food|
       attributes = HealthyFoods::Scraper.scrape_food_page("http://www.whfoods.com/" + food.url)
+      food.add_food_attributes(attributes)
     end
   end
 

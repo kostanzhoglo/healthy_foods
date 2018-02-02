@@ -14,8 +14,13 @@ class HealthyFoods::Scraper
     food_list
   end
 
-  def self.scrape_food_page(food_url)
-
+  def self.scrape_food_page
+    food_page = Nokogiri::HTML(open("http://www.whfoods.com/genpage.php?tname=foodspice&dbid=12"))
+    food = {}
+    food_page.css("div.slot-6-7-8 div div div div").each do |div|
+      basic = div.css("style").text
+      binding.pry
+    end
   end
 
 end
