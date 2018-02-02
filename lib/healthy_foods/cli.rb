@@ -16,6 +16,11 @@ class HealthyFoods::CLI
     end
   end
 
+  def make_foods
+    foods_array = Scraper.scrape_index_page
+    Food.create_from_collection(foods_array)
+  end
+
   def add_attributes_to_food
     Food.all.each do |food|
       attributes = Scraper.scrape_food_page("http://www.whfoods.com/" + food.url)
