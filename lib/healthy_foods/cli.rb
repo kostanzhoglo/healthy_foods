@@ -10,6 +10,11 @@ class HealthyFoods::CLI
     goodbye
   end
 
+  def make_foods
+    foods_array = HealthyFoods::Scraper.scrape_index_page
+    HealthyFoods::Food.create_from_collection(foods_array)
+  end
+
   def list_foods
     # @foods = HealthyFoods::Food.list
     HealthyFoods::Food.all.each.with_index(1) do |food, index|
@@ -17,14 +22,9 @@ class HealthyFoods::CLI
     end
   end
 
-  def make_foods
-    foods_array = HealthyFoods::Scraper.scrape_index_page
-    HealthyFoods::Food.create_from_collection(foods_array)
-  end
-
   def add_attributes_to_food
-    Food.all.each do |food|
-      attributes = Scraper.scrape_food_page("http://www.whfoods.com/" + food.url)
+    HealthyFoods::Food.all.each do |food|
+      attributes = HealthyFoods::Scraper.scrape_food_page("http://www.whfoods.com/" + food.url)
     end
   end
 

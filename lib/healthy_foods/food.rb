@@ -16,6 +16,11 @@ class HealthyFoods::Food
     end
   end
 
+  def add_food_attributes(attributes_hash)
+    attributes_hash.each {|key, value| self.send(("#{key}="), value)}
+    self
+  end
+
   def self.all
     @@all
   end
