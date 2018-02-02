@@ -16,6 +16,12 @@ class HealthyFoods::CLI
     end
   end
 
+  def add_attributes_to_food
+    Food.all.each do |food|
+      attributes = Scraper.scrape_food_page("http://www.whfoods.com/" + food.url)
+    end
+  end
+
   def menu
     user_input = nil
     while user_input != "exit"

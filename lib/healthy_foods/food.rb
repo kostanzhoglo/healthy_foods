@@ -3,6 +3,13 @@ class HealthyFoods::Food
 
   attr_accessor :name, :serving_size, :nutrients, :calories, :url
 
+  @@all = []
+
+  def initialize(food_hash)
+    food_hash.each {|attribute, value| self.send(("#{attribute}=", value))}
+    @@all << self
+  end
+
   def self.list
 
     food_1 = self.new
