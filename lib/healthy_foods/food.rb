@@ -10,6 +10,16 @@ class HealthyFoods::Food
     @@all << self
   end
 
+  def self.create_from_collection(foods_array)
+    foods_array.each do |food|
+      Food.new(food)
+    end
+  end
+
+  def self.all
+    @@all
+  end
+
   def self.list
 
     food_1 = self.new
