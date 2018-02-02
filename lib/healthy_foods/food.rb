@@ -1,7 +1,7 @@
 
 class HealthyFoods::Food
 
-  attr_accessor :name, :serving_size, :nutrients, :calories
+  attr_accessor :name, :serving_size, :nutrients, :calories, :url
 
   def self.list
 
