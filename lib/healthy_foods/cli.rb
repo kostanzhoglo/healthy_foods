@@ -4,6 +4,7 @@ class HealthyFoods::CLI
 
   def call
     puts "Welcome to Healthy Foods!"
+    make_foods
     list_foods
     menu
     goodbye
@@ -17,8 +18,8 @@ class HealthyFoods::CLI
   end
 
   def make_foods
-    foods_array = Scraper.scrape_index_page
-    Food.create_from_collection(foods_array)
+    foods_array = HealthyFoods::Scraper.scrape_index_page
+    HealthyFoods::Food.create_from_collection(foods_array)
   end
 
   def add_attributes_to_food

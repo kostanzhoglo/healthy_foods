@@ -12,7 +12,7 @@ class HealthyFoods::Food
 
   def self.create_from_collection(foods_array)
     foods_array.each do |food|
-      Food.new(food)
+      HealthyFoods::Food.new(food)
     end
   end
 
