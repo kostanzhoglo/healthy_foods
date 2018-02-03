@@ -43,7 +43,7 @@ class HealthyFoods::CLI
         food_choice.add_food_attributes(attributes)
         puts "#{food_choice.name.upcase}"
         puts "Serving Size: #{food_choice.serving_size}"
-        puts "Calories: #{food_choice.calories}"
+        puts "#{food_choice.calories}"
         puts "General_info: #{food_choice.general_info}"
       elsif user_input == "foods"
         list_foods

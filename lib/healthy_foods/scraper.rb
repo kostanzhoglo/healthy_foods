@@ -23,7 +23,10 @@ class HealthyFoods::Scraper
             # food[:calories] = div.css("div").text.gsub(/.+[)]/, "").gsub(/[GI]\S+\s+\S+\s\S+/, "")
             # binding.pry
       # TESTING THIS CODE.
-    food[:calories] = food_page.css("div.slot-6-7-8 div div div div").text.gsub(/.+[)]|[GI]\S+\s+\S+\s\S+/, "")   #.gsub(/[GI]\S+\s+\S+\s\S+/, "")
+    food[:serving_size] = food_page.css("div.slot-6-7-8 div div div div")[0].text.gsub(/.+[(]|[)]/, "")
+    food[:calories] = food_page.css("div.slot-6-7-8 div div div div")[1].text.gsub(/[GI]\S+\s+\S+\s\S+/, "")
+    # ATTEMPT 2    (/.+[)]|[GI]\S+\s+\S+\s\S+/, "")
+    # ATTEMPT 1  .gsub(/[GI]\S+\s+\S+\s\S+/, "")
           # end
     # binding.pry
     food
