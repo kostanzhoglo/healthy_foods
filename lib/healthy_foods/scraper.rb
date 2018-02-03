@@ -14,13 +14,15 @@ class HealthyFoods::Scraper
     food_list
   end
 
-  def self.scrape_food_page
-    food_page = Nokogiri::HTML(open("http://www.whfoods.com/genpage.php?tname=foodspice&dbid=12"))
+  def self.scrape_food_page(food_url)
+    food_page = Nokogiri::HTML(open(food_url))
     food = {}
-    food_page.css("div.slot-6-7-8 div div div div").each do |div|
-      basic = div.css("style").text
-      binding.pry
+    food[:general_info] = food_page.css("p")[3]
+    food_page.css("div.slot-6-7-8 div div div").each do |div|
+      food[:serving_size] = div.css("div").first.text.gsub("1.00 cup(", " ").gsub(")", "")
+      food[:calories] = div.css("div").last.text.gsub(/[GI]\S+\s+\S+\s\S+/, "")
     end
+    food
   end
 
 end

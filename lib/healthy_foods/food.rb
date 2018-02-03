@@ -1,7 +1,7 @@
 
 class HealthyFoods::Food
 
-  attr_accessor :name, :serving_size, :nutrients, :calories, :url
+  attr_accessor :name, :serving_size, :general_info, :calories, :url
 
   @@all = []
 
