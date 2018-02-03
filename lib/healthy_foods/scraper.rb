@@ -23,9 +23,9 @@ class HealthyFoods::Scraper
             # food[:calories] = div.css("div").text.gsub(/.+[)]/, "").gsub(/[GI]\S+\s+\S+\s\S+/, "")
             # binding.pry
       # TESTING THIS CODE.
-    # food[:calories] = food_page.css("div.slot-6-7-8 div div div div").text.gsub(/.+[)]|[GI]\S+\s+\S+\s\S+/, "REPLACE")   #.gsub(/[GI]\S+\s+\S+\s\S+/, "")
+    food[:calories] = food_page.css("div.slot-6-7-8 div div div div").text.gsub(/.+[)]|[GI]\S+\s+\S+\s\S+/, "")   #.gsub(/[GI]\S+\s+\S+\s\S+/, "")
           # end
-    food[:calories] = food_page.css("table tbody td")[0]
+    # binding.pry
     food
   end
 
@@ -35,3 +35,6 @@ end
 
 #  LINE 9 once upon a time. Didn't return what I needed but was close.
 # food_name = food.css("li").children.text.split(", ")
+
+# Fill in for Food_url when doing tests in # scrape_food_page
+# "http://www.whfoods.com/genpage.php?tname=foodspice&dbid=84"
