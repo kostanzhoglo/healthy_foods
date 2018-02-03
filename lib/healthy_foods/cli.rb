@@ -38,7 +38,7 @@ class HealthyFoods::CLI
 
       if user_input.to_i > 0 && user_input.to_i <= HealthyFoods::Food.all.length
         food_choice = HealthyFoods::Food.all[user_input.to_i - 1]
-        
+
         puts "#{food_choice.name.upcase}"
         puts "Serving Size: #{food_choice.serving_size}"
         puts "Calories: #{food_choice.calories}"
