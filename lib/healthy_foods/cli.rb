@@ -6,6 +6,7 @@ class HealthyFoods::CLI
     puts "Welcome to Healthy Foods!"
     make_foods
     list_foods
+    add_attributes_to_food
     menu
     goodbye
   end
@@ -35,12 +36,12 @@ class HealthyFoods::CLI
       puts "\nPlease enter the number of the food you'd like to learn more about,\n or type 'foods' to see list of foods again,\n or type 'exit' to end program."
       user_input = gets.strip.downcase
 
-      if user_input.to_i > 0 && user_input.to_i <= @foods.length
-        food_choice = @foods[user_input.to_i - 1]
+      if user_input.to_i > 0 && user_input.to_i <= HealthyFoods::Food.all.length
+        food_choice = HealthyFoods::Food.all[user_input.to_i - 1]
         puts "#{food_choice.name.upcase}"
         puts "Serving Size: #{food_choice.serving_size}"
         puts "Calories: #{food_choice.calories}"
-        puts "Nutrients: #{food_choice.nutrients.join(", ")}"
+        puts "General_info: #{food_choice.general_info}"
       elsif user_input == "foods"
         list_foods
       elsif user_input == "exit"
