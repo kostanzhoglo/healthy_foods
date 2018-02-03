@@ -6,7 +6,7 @@ class HealthyFoods::CLI
     puts "Welcome to Healthy Foods!"
     make_foods
     list_foods
-    add_attributes_to_food
+    # add_attributes_to_food
     menu
     goodbye
   end
@@ -23,12 +23,12 @@ class HealthyFoods::CLI
     end
   end
 
-  def add_attributes_to_food
-    HealthyFoods::Food.all.each do |food|
-      attributes = HealthyFoods::Scraper.scrape_food_page("http://www.whfoods.com/" + food.url)
-      food.add_food_attributes(attributes)
-    end
-  end
+  # def add_attributes_to_food
+  #   HealthyFoods::Food.all.each do |food|
+  #     attributes = HealthyFoods::Scraper.scrape_food_page("http://www.whfoods.com/" + food.url)
+  #     food.add_food_attributes(attributes)
+  #   end
+  # end
 
   def menu
     user_input = nil
@@ -38,7 +38,9 @@ class HealthyFoods::CLI
 
       if user_input.to_i > 0 && user_input.to_i <= HealthyFoods::Food.all.length
         food_choice = HealthyFoods::Food.all[user_input.to_i - 1]
-
+        # BELOW IS #add_attributes_to_food method, but only scrapes food_choice asked for by user, instead of ENTIRE ARRAY (time suck)
+        attributes = HealthyFoods::Scraper.scrape_food_page("http://www.whfoods.com/" + food_choice.url)
+        food_choice.add_food_attributes(attributes)
         puts "#{food_choice.name.upcase}"
         puts "Serving Size: #{food_choice.serving_size}"
         puts "Calories: #{food_choice.calories}"
