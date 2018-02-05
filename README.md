@@ -1,8 +1,6 @@
 # HealthyFoods
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/healthy_foods`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to your Healthy Foods!  This is a simply Ruby CLI gem to learn some basic info about healthy foods on the planet earth.  You can select one of over 100 foods!
 
 ## Installation
 
@@ -22,7 +20,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Once you have the gem installed, simply type:
+
+./bin/healthy_foods
+
+to enter the program.  Then follow the prompts to select any food you'd like to learn about.
+To see the entire list of foods again, type "foods", and to leave the program, type "exit".
 
 ## Development
 
