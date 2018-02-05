@@ -17,7 +17,7 @@ class HealthyFoods::Scraper
   def self.scrape_food_page(food_url)
     food_page = Nokogiri::HTML(open(food_url))
     food = {}
-    food[:general_info] = food_page.css("p")[3].text
+    food[:general_info] = food_page.css("p")[3, 2].text
           # food_page.css("div.slot-6-7-8 div div div").each do |div|
             # food[:serving_size] = div.css("div").text.gsub("1.00 cup(", " ").gsub(")", "")
             # food[:calories] = div.css("div").text.gsub(/.+[)]/, "").gsub(/[GI]\S+\s+\S+\s\S+/, "")

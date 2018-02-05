@@ -1,6 +1,7 @@
 require "open-uri"
 require "nokogiri"
 require "pry"
+require 'colorize'
 
 require_relative "./healthy_foods/version"
 require_relative "./healthy_foods/scraper"
