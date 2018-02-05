@@ -17,7 +17,6 @@ class HealthyFoods::CLI
   end
 
   def list_foods
-    # @foods = HealthyFoods::Food.list
     HealthyFoods::Food.all.each.with_index(1) do |food, index|
       puts "#{index}. #{food.name}"
     end
@@ -38,7 +37,7 @@ class HealthyFoods::CLI
 
       if user_input.to_i > 0 && user_input.to_i <= HealthyFoods::Food.all.length
         food_choice = HealthyFoods::Food.all[user_input.to_i - 1]
-        # BELOW IS #add_attributes_to_food method, but only scrapes food_choice asked for by user, instead of ENTIRE ARRAY (time suck)
+        # LINES 41 and 42 BELOW IS #add_attributes_to_food method (commented out above), but only scrapes food_choice asked for by user, instead of ENTIRE ARRAY (time suck)
         attributes = HealthyFoods::Scraper.scrape_food_page("http://www.whfoods.com/" + food_choice.url)
         food_choice.add_food_attributes(attributes)
         puts "#{food_choice.name.upcase}".colorize(:light_green)
