@@ -42,7 +42,7 @@ class HealthyFoods::CLI
         food_choice.add_food_attributes(attributes)
         puts "#{food_choice.name.upcase}".colorize(:light_green)
         puts "Serving Size: #{food_choice.serving_size}".colorize(:light_red)
-        puts "#{food_choice.calories}".colorize(:light_blue)
+        puts "Calories: #{food_choice.calories}".colorize(:light_blue)
         puts "General_info: #{food_choice.general_info}".colorize(:yellow)
       elsif user_input == "foods"
         list_foods
