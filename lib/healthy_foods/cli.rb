@@ -41,14 +41,14 @@ class HealthyFoods::CLI
         # BELOW IS #add_attributes_to_food method, but only scrapes food_choice asked for by user, instead of ENTIRE ARRAY (time suck)
         attributes = HealthyFoods::Scraper.scrape_food_page("http://www.whfoods.com/" + food_choice.url)
         food_choice.add_food_attributes(attributes)
-        puts "#{food_choice.name.upcase}"
-        puts "Serving Size: #{food_choice.serving_size}"
-        puts "#{food_choice.calories}"
-        puts "General_info: #{food_choice.general_info}"
+        puts "#{food_choice.name.upcase}".colorize(:light_green)
+        puts "Serving Size: #{food_choice.serving_size}".colorize(:light_red)
+        puts "#{food_choice.calories}".colorize(:light_blue)
+        puts "General_info: #{food_choice.general_info}".colorize(:yellow)
       elsif user_input == "foods"
         list_foods
       elsif user_input == "exit"
-        puts "Hope you learned something fruitful!"
+        puts "Hope you learned something " + "fruitful.".colorize(:light_green)
       else
         puts "Invalid input.  Please type a number, 'foods' or 'exit'."
       end
@@ -56,7 +56,7 @@ class HealthyFoods::CLI
   end
 
   def goodbye
-    puts "Come back soon to find out more!  Eat those fruits and veggies!"
+    puts "Come back soon to find out more!"
   end
 
 
