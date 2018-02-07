@@ -36,14 +36,14 @@ class HealthyFoods::CLI
       user_input = gets.strip.downcase
 
       if user_input.to_i > 0 && user_input.to_i <= HealthyFoods::Food.all.length
-        food_choice = HealthyFoods::Food.all[user_input.to_i - 1]
+        food = HealthyFoods::Food.all[user_input.to_i - 1]
         # LINES 41 and 42 BELOW IS #add_attributes_to_food method (commented out above), but only scrapes food_choice asked for by user, instead of ENTIRE ARRAY (time suck)
-        attributes = HealthyFoods::Scraper.scrape_food_page("http://www.whfoods.com/" + food_choice.url)
-        food_choice.add_food_attributes(attributes)
-        puts "#{food_choice.name.upcase}".colorize(:light_green)
-        puts "Serving Size: #{food_choice.serving_size}".colorize(:light_red)
-        puts "Calories: #{food_choice.calories}".colorize(:light_blue)
-        puts "General_info: #{food_choice.general_info}".colorize(:yellow)
+        attributes = HealthyFoods::Scraper.scrape_food_page("http://www.whfoods.com/" + food.url)
+        food.add_food_attributes(attributes)
+        puts "#{food.name.upcase}".colorize(:light_green)
+        puts "Serving Size: #{food.serving_size}".colorize(:light_red)
+        puts "Calories: #{food.calories}".colorize(:light_blue)
+        puts "General_info: #{food.general_info}".colorize(:yellow)
       elsif user_input == "foods"
         list_foods
       elsif user_input == "exit"
